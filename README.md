@@ -173,6 +173,59 @@ Les perspectives d'amélioration comprennent :
 - L'optimisation du temps d'inférence pour une éventuelle utilisation en temps réel.
 - L'intégration future à un système de surveillance industrielle.
 
+## 🐳 Exécution avec Docker
+
+L'application Smart Conveyor Vision peut être exécutée dans un conteneur Docker afin de faciliter son installation et son utilisation.
+
+### Prérequis
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et démarré.
+- Le code source du projet cloné localement.
+
+### 1. Construire l'image Docker
+
+À la racine du projet, exécuter :
+
+```bash
+docker build -t smart-conveyor-vision .
+```
+
+Cette commande construit une image contenant l'environnement Python, les dépendances et les fichiers nécessaires à l'application.
+
+> La première construction peut prendre du temps, notamment lors de l'installation de PyTorch.
+
+### 2. Lancer l'application
+
+```bash
+docker run --rm -p 8501:8501 smart-conveyor-vision
+```
+
+### 3. Accéder à l'interface
+
+Ouvrir le navigateur à l'adresse suivante :
+
+http://localhost:8501
+
+### 4. Arrêter l'application
+
+Dans le terminal où le conteneur s'exécute, appuyer sur `Ctrl + C`.
+
+L'option `--rm` supprime automatiquement le conteneur à son arrêt. L'image Docker reste disponible pour les prochains lancements.
+
+### Contenu Docker
+
+L'image est conçue pour inclure :
+- L'interface web développée avec Streamlit.
+- Les dépendances nécessaires à la détection d'anomalies.
+- Le modèle YOLO entraîné (`best.pt`).
+- Les graphiques et résultats d'entraînement utilisés dans l'interface.
+
+Le dataset complet et les vidéos de simulation ne sont pas inclus dans l'image.
+
+### Technologies utilisées
+
+Python · YOLO · OpenCV · Streamlit · Docker · Blender
+
 ## 👨‍💻 Auteur
 
 **NGUELE NGEBINE Lumière**
