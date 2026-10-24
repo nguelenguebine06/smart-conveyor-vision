@@ -109,7 +109,6 @@ def detecter_video(video_path, output_path, callback=None, conf=0.25):
     }
 
 
-# Permet de conserver une utilisation indépendante du script
 if __name__ == "__main__":
     resultat = detecter_video(
         "convoyeur_en_mouvement.mp4",
