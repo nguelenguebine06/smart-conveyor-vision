@@ -1,0 +1,51 @@
+.stApp {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+[data-testid="stSidebar"] {
+    background-color: #ffffff;
+    border-right: 1px solid #eeeeee;
+}
+
+.main-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666666;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    color: #222222;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.description-card {
+    margin-top: 20px;
+    padding: 18px 22px;
+    background: #f5f7fb;
+    border: 1px solid #e1e6ef;
+    border-radius: 12px;
+    color: #101a33;
+}
+
+.description-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.description-card p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 14px;
+}

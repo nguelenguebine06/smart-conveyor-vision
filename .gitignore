@@ -1,0 +1,71 @@
+# ==============================
+# Environnement Python
+# ==============================
+.venv/
+venv/
+env/
+
+# ==============================
+# Fichiers Python temporaires
+# ==============================
+__pycache__/
+*.py[cod]
+
+# ==============================
+# Secrets et configuration locale
+# ==============================
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# ==============================
+# Éditeurs de code
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Système d'exploitation
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Fichiers temporaires et journaux
+# ==============================
+*.tmp
+*.log
+*.bak
+
+# ==============================
+# Résultats d'entraînement YOLO
+# ==============================
+# Exclure les résultats d'entraînement
+# Exclure les résultats d'entraînement sauf le modèle requis
+/runs/*
+!/runs/detect/
+/runs/detect/*
+!/runs/detect/runs/
+/runs/detect/runs/*
+!/runs/detect/runs/detection_trous/
+/runs/detect/runs/detection_trous/*
+!/runs/detect/runs/detection_trous/weights/
+/runs/detect/runs/detection_trous/weights/*
+!/runs/detect/runs/detection_trous/weights/best.pt
+# ==============================
+# Autres poids de modèles
+# ==============================
+*.onnx
+*.engine
+
+# ==============================
+# Archives
+# ==============================
+*.zip
+
+# Caches générés par YOLO
+*.cache
+# Vidéos de démonstration
+videos/
