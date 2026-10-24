@@ -1,6 +1,8 @@
 
 # 🏭 Smart Conveyor Vision
 
+![vue_application](images_app/vue_app.jpeg)
+
 **Système intelligent de détection des trous sur un tapis roulant industriel par vision par ordinateur et intelligence artificielle.**
 
 Smart Conveyor Vision est un prototype de vision industrielle qui combine la simulation 3D avec Blender, la détection d'objets avec YOLO26n et le traitement vidéo avec OpenCV. L'application permet d'analyser des vidéos d'un convoyeur, de détecter les trous présents sur la bande transporteuse et de visualiser les résultats dans une interface interactive développée avec Streamlit.
@@ -39,6 +41,8 @@ Smart Conveyor Vision est un prototype de vision industrielle qui combine la sim
 ```text
 Smart-Conveyor-Vision/
 ├── app.py
+├── Dokerfile
+├── .dockerignore
 ├── detect_video.py
 ├── style.css
 ├── requirements.txt
@@ -52,10 +56,10 @@ Smart-Conveyor-Vision/
 │
 ├── dataset/
 │
-├── videos/
-│   └── convoyeur_video.mp4
+├── images_app/
+│  
 │
-├── train/
+├── train_yolo/
 │   ├── test_dataset.py
 │   ├── test_detection.py
 │   ├── train.py
@@ -67,20 +71,17 @@ Smart-Conveyor-Vision/
             └── detection_trous/
                 └── weights/
                     └── best.pt
+                └── Images_metrics
 ```
-
-*Cette arborescence est indicative. Adapte les noms et les chemins à l'organisation réelle de ton projet. Les dossiers de résultats et les poids du modèle peuvent être exclus du dépôt s'ils sont trop volumineux.*
 
 ## 🧪 Scripts de développement
 
-Le dossier `train/` regroupe les scripts Python utilisés pendant le développement et la validation du système.
+Le dossier `train_yolo/` regroupe les scripts Python utilisés pendant le développement et la validation du système.
 
 - **`test_dataset.py` :** vérification du dataset et de sa structure.
 - **`train.py` :** entraînement du modèle YOLO26n.
-- **`test_detection.py` :** tests de détection sur des images ou des données de test.
+- **`test_detection.py` :** tests de détection sur images.
 - **`visualisation_annotation.py` :** visualisation des annotations et des cadres autour des objets.
-
-Les noms ci-dessus sont des exemples de présentation : conserve les noms exacts de tes fichiers.
 
 ## ⚙️ Installation et lancement
 
@@ -94,11 +95,10 @@ Les noms ci-dessus sont des exemples de présentation : conserve les noms exacts
 ### 1. Cloner le dépôt
 
 ```bash
-git clone URL_DU_DEPOT
-cd Smart-Conveyor-Vision
+git clone https://github.com/nguelenguebine06/smart-conveyor-vision.git
+cd smart-conveyor-vision
 ```
 
-Remplace `URL_DU_DEPOT` par l'adresse réelle de ton dépôt GitHub.
 
 ### 2. Créer un environnement virtuel
 
@@ -142,24 +142,30 @@ Le fichier de poids personnalisé, généralement nommé `best.pt`, doit être d
 
 ## 📊 Évaluation du modèle
 
+![Vue métriques](images_app/metric.jpeg)
+
 L'application présente plusieurs indicateurs et visualisations issus de l'entraînement et de la validation :
 
-- Précision.
-- Rappel.
-- mAP@50.
-- mAP@50-95.
-- Courbes d'apprentissage et de performance.
-- Matrice de confusion.
+- Précision : vérifier que le modèle manque peu de trous.
+- Rappel : vérifier qu'il génère peu de fausses alertes.
+- mAP@50 : mesurer la qualité globale de détection avec une tolérance de localisation modérée.
+- mAP@50-95 : examiner la précision de localisation plus exigeante.
+- Courbes de pertes : rechercher des signes de surapprentissage.
+- Matrice de confusion : comprendre les erreurs de détection..
 
 Les valeurs affichées doivent être interprétées en fonction du jeu de données utilisé. Les performances mesurées sur des données synthétiques ne garantissent pas les mêmes résultats sur un convoyeur industriel réel.
 
 ## 🎥 Démonstration
 
-Le fichier `videos/convoyeur_video.mp4` peut servir de vidéo de démonstration du convoyeur simulé.
+![Telecharger une vidéo](images_app/test1.jpeg)
 
 L'application permet de charger une vidéo compatible, de lancer la détection et de télécharger la vidéo annotée.
 
+![Demonstration](images_app/test2.jpeg)
+
 Une capture d'écran du Dashboard ou une courte vidéo de démonstration peut également être ajoutée ici pour illustrer le fonctionnement du système.
+
+![Test vidéo](images_app/test_anomalie.jpeg)
 
 ## ⚠️ Limites et perspectives
 

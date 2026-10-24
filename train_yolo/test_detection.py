@@ -8,7 +8,7 @@ model = YOLO(
 # Tester sur une image du dataset
 results = model.predict(
     source="dataset/images/val/img_0310.png",
-    conf=0.25,
+    conf=0.85,
     save=True
 )
 
